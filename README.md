@@ -7,7 +7,7 @@ sample source file:
   ...
   ...
 
-pass the source file to setEnv("<source file path>")
+pass the source file to updateEnv("<source file path>")
 
 Next execute commands that needs the environment variable from the above sourced file by calling python_execute("<cmd>")
 This function returns 3 parameters viz., status, output, error for the command that was executed.
