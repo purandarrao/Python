@@ -1,0 +1,42 @@
+class Solution:
+    # @param A : tuple of list of integers
+    # @return a list of integers
+    def spiralOrder(self, A):
+        result = []
+        height=len(A)
+        width=len(A[0])
+        # print matrix_size
+        colStart=0
+        colEnd=width-1
+        rowStart=0
+        rowEnd=height-1
+        rowVisited=-1
+        colVisited=-1
+        while(colStart<=colEnd and rowStart<=rowEnd):
+            if(rowVisited != rowStart):
+                for i in range(colStart,colEnd+1):
+                    # print A[rowStart][i]
+                    result.append(A[rowStart][i])
+                rowVisited=rowStart
+            if(colVisited != colEnd):
+                for i in range(rowStart+1,rowEnd+1):
+                    # print A[i][colEnd]
+                    result.append(A[i][colEnd])
+                colVisted=colEnd
+            if(rowVisited != rowEnd and rowStart != rowEnd):
+                for i in range(colEnd-1,colStart-1,-1):
+                    # print A[rowEnd][i]
+                    result.append(A[rowEnd][i])
+                rowVisited=rowEnd
+            if(colVisited != colStart and colEnd != colStart):
+                for i in range(rowEnd-1,rowStart, -1):
+                    # print A[i][colStart]
+                    result.append(A[i][colStart])
+                colVisited=colStart
+            
+            colStart+=1
+            rowStart+=1
+            colEnd-=1
+            rowEnd-=1
+        ## Actual code to populate result
+        return result
